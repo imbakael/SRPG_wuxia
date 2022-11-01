@@ -1,0 +1,12 @@
+﻿[
+  {
+    "id": 1,
+    "name": "伤害加深",
+    "des": "攻击+30%",
+    "priority": 0,
+    "maxStack": 1,
+    "durationRound": -1,
+    "triggerInterval": -1,
+    "triggerProbability": 100
+  }
+]

@@ -1,0 +1,11 @@
+﻿[
+  {
+    "id": 1,
+    "name": "劈砍",
+    "des": "砍一刀",
+    "shakeBefore": 300,
+    "attackDuration": 100,
+    "shakeAfter": 200,
+    "buffArr": [10001,10002]
+  }
+]
