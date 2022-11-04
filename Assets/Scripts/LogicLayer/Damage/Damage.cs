@@ -8,4 +8,10 @@ public class Damage {
     public Damage() {
 
     }
+
+    public static Damage operator *(Damage a, float b) {
+        return new Damage {
+            physics = a.physics * b
+        };
+    }
 }

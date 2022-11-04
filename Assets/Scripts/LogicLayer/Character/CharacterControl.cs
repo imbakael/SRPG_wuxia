@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 管理战场内所有角色
 public class CharacterControl {
 
     private List<Character> players;

@@ -13,7 +13,24 @@ public class BuffModel {
     public int triggerInterval; // ´¥·¢¼ä¸ô
     public int triggerProbability;
 
-    public BuffOnHit onHit;
+    public string onHit;
+    public string onTick;
+    public BuffOnHit buffOnHit;
+    public BuffOnTick buffOnTick;
+
+    public BuffModel() {
+        
+    }
+
+    public void InitCallback() {
+        if (!string.IsNullOrEmpty(onHit)) {
+            buffOnHit = BuffOnHitCallback.all[onHit];
+        }
+        if (!string.IsNullOrEmpty(onTick)) {
+            buffOnTick = BuffOnTickCallback.all[onTick];
+        }
+    }
 }
 
 public delegate void BuffOnHit(BuffObj theBuff, DamageInfo damageInfo);
+public delegate void BuffOnTick(BuffObj theBuff);

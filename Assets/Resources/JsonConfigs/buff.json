@@ -7,6 +7,8 @@
     "maxStack": 1,
     "durationRound": -1,
     "triggerInterval": -1,
-    "triggerProbability": 100
+    "triggerProbability": 100,
+    "onHit": "伤害加深",
+    "onTick": null
   }
 ]

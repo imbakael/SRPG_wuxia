@@ -8,7 +8,7 @@ public class DamageManager : Singleton<DamageManager>, ILogic {
     private List<DamageInfo> damageInfos = new List<DamageInfo>();
 
     public void OnCreate() {
-    
+        
     }
 
     public void OnDestroy() {
@@ -31,7 +31,7 @@ public class DamageManager : Singleton<DamageManager>, ILogic {
         if (attacker != null) {
             for (int i = 0; i < attacker.buffs.Count; i++) {
                 BuffObj buff = attacker.buffs[i];
-                buff.model.onHit?.Invoke(buff, damageInfo);
+                buff.model.buffOnHit?.Invoke(buff, damageInfo);
             }
         }
     }

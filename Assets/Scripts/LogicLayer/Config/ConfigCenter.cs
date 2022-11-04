@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class ConfigCenter {
     public static List<SkillModel> SkillModelList { get; private set; }
+    public static List<BuffModel> BuffModelList { get; private set; }
 
     public static void Initialized() {
-        LoadHeroConfig();
+        LoadConfig();
     }
 
-    public static void LoadHeroConfig() {
-        TextAsset text = Resources.Load<TextAsset>("JsonConfigs/skill");
-        SkillModelList = JsonConvert.DeserializeObject<List<SkillModel>>(text.text);
+    public static void LoadConfig() {
+        TextAsset skillText = Resources.Load<TextAsset>("JsonConfigs/skill");
+        SkillModelList = JsonConvert.DeserializeObject<List<SkillModel>>(skillText.text);
+        TextAsset buffText = Resources.Load<TextAsset>("JsonConfigs/buff");
+        BuffModelList = JsonConvert.DeserializeObject<List<BuffModel>>(buffText.text);
+        for (int i = 0; i < BuffModelList.Count; i++) {
+            BuffModelList[i].InitCallback();
+        }
     }
 
     public static SkillModel GetSkillModel(int skillId) {
