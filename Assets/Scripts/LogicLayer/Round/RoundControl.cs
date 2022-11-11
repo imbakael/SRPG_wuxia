@@ -7,7 +7,7 @@ public class RoundControl : ILogic {
 
     private Queue<Character> activeCharacters;
     private CharacterControl characterControl;
-    private int roundId;
+    private int roundId; // 当前第几回合
 
     public void OnCreate() {
         
@@ -21,25 +21,25 @@ public class RoundControl : ILogic {
         
     }
 
-    public void NextRoundStart() {
+    public void NextRound() {
         roundId++;
-        activeCharacters = characterControl.CalcuAttackSort();
-        NextCharacterAction();
+        activeCharacters = characterControl.GetSortByAgi();
+        NextCharacter();
     }
 
-    private void NextCharacterAction() {
+    public void NextCharacter() {
         if (activeCharacters.Count == 0) {
             RoundEnd();
-            NextRoundStart();
+            NextRound();
             return;
         }
-        Character character = activeCharacters.Dequeue();
-        character.ActionStart();
-        character.OnActionEnd = NextCharacterAction;
+        Character currentCharacter = activeCharacters.Dequeue();
+        currentCharacter.StartAction();
+        currentCharacter.OnActionEnd -= NextCharacter;
+        currentCharacter.OnActionEnd += NextCharacter;
     }
 
-    // 某阵营回合结束
-    private void RoundEnd() {
-        
+    public void RoundEnd() {
+        characterControl.RunOneCycleBuff();
     }
 }

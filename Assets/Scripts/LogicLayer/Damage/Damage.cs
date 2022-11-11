@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class Damage {
 
@@ -12,6 +9,12 @@ public class Damage {
     public static Damage operator *(Damage a, float b) {
         return new Damage {
             physics = a.physics * b
+        };
+    }
+
+    public static Damage operator +(Damage a, Damage b) {
+        return new Damage {
+            physics = a.physics + b.physics
         };
     }
 }

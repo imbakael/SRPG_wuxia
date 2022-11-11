@@ -17,7 +17,7 @@ public class ConfigCenter {
         TextAsset buffText = Resources.Load<TextAsset>("JsonConfigs/buff");
         BuffModelList = JsonConvert.DeserializeObject<List<BuffModel>>(buffText.text);
         for (int i = 0; i < BuffModelList.Count; i++) {
-            BuffModelList[i].InitCallback();
+            BuffModelList[i].Init();
         }
     }
 

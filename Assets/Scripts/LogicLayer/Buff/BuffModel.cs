@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,16 +19,22 @@ public class BuffModel {
     public BuffOnHit buffOnHit;
     public BuffOnTick buffOnTick;
 
+    public string property;
+    public CharacterProperty prop;
+
     public BuffModel() {
         
     }
 
-    public void InitCallback() {
+    public void Init() {
         if (!string.IsNullOrEmpty(onHit)) {
             buffOnHit = BuffOnHitCallback.all[onHit];
         }
         if (!string.IsNullOrEmpty(onTick)) {
             buffOnTick = BuffOnTickCallback.all[onTick];
+        }
+        if (!string.IsNullOrEmpty(property)) {
+            prop = JsonConvert.DeserializeObject<CharacterProperty>(property);
         }
     }
 }

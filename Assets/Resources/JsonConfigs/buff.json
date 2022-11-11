@@ -9,6 +9,7 @@
     "triggerInterval": -1,
     "triggerProbability": 100,
     "onHit": "伤害加深",
-    "onTick": null
+    "onTick": null,
+    "property": "{\"hp\":10,\"defend\":5 }"
   }
 ]
